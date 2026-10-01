@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Grade 10 Computer Science Quiz — CDC Curriculum</title>
+<meta name="description" content="Practice quiz for Grade 10 Computer Science, covering all five CDC curriculum units, built by Sisir Bhattarai.">
+<meta property="og:title" content="Grade 10 Computer Science Quiz — CDC Curriculum">
+<meta property="og:description" content="Practice questions from every unit of the Grade 10 CS textbook, following the CDC curriculum.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/jpeg" href="data:image/jpeg;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+
+    --bg: #ffffff;
+    --ink: #0a0a0a;
+    --ink-soft: #6b6b66;
+    --line: #dedcd6;
+    --paper: #f6f5f1;
+    --inv-bg: #0a0a0a;
+    --inv-ink: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0a0a0a;
+      --ink: #f5f4f0;
+      --ink-soft: #9a9a94;
+      --line: #2a2a27;
+      --paper: #151513;
+      --inv-bg: #f5f4f0;
+      --inv-ink: #0a0a0a;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Work Sans', -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    transition: background .4s ease, color .4s ease;
+  }
+  ::selection { background: var(--ink); color: var(--bg); }
+
+  a { color: inherit; }
+
+  .shell {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  @media (min-width: 1024px) {
+    .shell { width: 50%; min-width: 640px; padding: 0; }
+  }
+
+  /* ---------- top bar ---------- */
+  .topbar {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 40;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar-inner {
+    width: 100%;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  @media (min-width: 1024px) {
+    .topbar-inner { width: 50%; min-width: 640px; padding: 18px 0; }
+  }
+  .mark {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: .01em;
+    text-decoration: none;
+  }
+  .mark em { font-style: italic; color: var(--ink-soft); }
+
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+
+  .mark { display: inline-flex; align-items: center; gap: 10px; }
+  .mark-photo {
+    width: 34px; height: 34px; border-radius: 50%; object-fit: cover;
+    display: block; border: 1px solid var(--line);
+  }
+  .nav-top .mark-photo { width: 40px; height: 40px; }
+
+  .burger {
+    position: relative;
+    width: 38px; height: 38px;
+    border: 1px solid var(--line);
+    background: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .burger .lines { position: relative; width: 16px; height: 11px; }
+  .burger span {
+    position: absolute; left: 0; width: 100%; height: 1.4px;
+    background: var(--ink);
+    transition: transform .35s cubic-bezier(.65,0,.35,1), opacity .25s ease, top .35s cubic-bezier(.65,0,.35,1);
+  }
+  .burger span:nth-child(1){ top: 0; }
+  .burger span:nth-child(2){ top: 5px; }
+  .burger span:nth-child(3){ top: 10px; }
+  .burger.open span:nth-child(1){ top: 5px; transform: rotate(45deg); }
+  .burger.open span:nth-child(2){ opacity: 0; }
+  .burger.open span:nth-child(3){ top: 5px; transform: rotate(-45deg); }
+
+  /* ---------- nav overlay (circle reveal) ---------- */
+  .nav-overlay {
+    position: fixed; inset: 0;
+    z-index: 50;
+    background: var(--inv-bg);
+    color: var(--inv-ink);
+    clip-path: circle(0px at calc(100% - 42px) 40px);
+    transition: clip-path .6s cubic-bezier(.65,0,.35,1);
+    visibility: hidden;
+    display: flex; flex-direction: column;
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  .nav-overlay.open {
+    clip-path: circle(150% at calc(100% - 42px) 40px);
+    visibility: visible;
+  }
+  .nav-overlay-inner {
+    width: 100%; margin: 0 auto; padding: 24px;
+    display: flex; flex-direction: column;
+    height: 100%;
+  }
+  @media (min-width: 1024px) {
+    .nav-overlay-inner { width: 50%; min-width: 640px; padding: 0; }
+  }
+  .nav-top { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+  .nav-top .burger span { background: var(--inv-ink); }
+  .nav-top .burger { border-color: rgba(255,255,255,.25); }
+
+  .nav-list {
+    list-style: none; margin: auto 0; padding: 0;
+  }
+  .nav-list li { border-top: 1px solid rgba(128,128,128,.35); }
+  .nav-list li:last-child { border-bottom: 1px solid rgba(128,128,128,.35); }
+  .nav-list a {
+    display: flex; align-items: baseline; gap: 14px;
+    font-family: 'Fraunces', serif;
+    font-size: clamp(30px, 7vw, 46px);
+    font-weight: 500;
+    text-decoration: none;
+    padding: 14px 0;
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity .4s ease, transform .4s ease, letter-spacing .3s ease;
+  }
+  .nav-overlay.open .nav-list a { opacity: 1; transform: translateY(0); }
+  .nav-list a:hover { letter-spacing: .01em; }
+  .nav-list .idx { font-family: 'Work Sans', sans-serif; font-size: 13px; color: var(--ink-soft); }
+  .nav-foot { padding: 18px 0 28px; font-size: 13px; color: var(--ink-soft); }
+
+  /* ---------- hero ---------- */
+  .hero { padding: 64px 0 40px; }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(34px, 6vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -.01em;
+    margin: 0 0 20px;
+  }
+  .hero h1 i { font-style: italic; color: var(--ink-soft); }
+  .hero p {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    max-width: 46ch;
+    margin: 0 0 28px;
+  }
+  .rule {
+    height: 1px; width: 100%;
+    background: var(--line);
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: draw 1.1s cubic-bezier(.65,0,.35,1) .15s forwards;
+  }
+  @keyframes draw { to { transform: scaleX(1); } }
+
+  /* ---------- filters ---------- */
+  .filters {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    padding: 26px 0 8px;
+  }
+  .chip {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 13px;
+    padding: 7px 13px;
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    background: transparent;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: background .25s ease, color .25s ease, border-color .25s ease;
+  }
+  .chip.active, .chip:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+  /* ---------- notes index ---------- */
+  .index { padding: 18px 0 60px; }
+  .row {
+    display: grid;
+    grid-template-columns: 30px 1fr auto;
+    gap: 14px;
+    align-items: baseline;
+    padding: 18px 14px;
+    margin: 0 -14px;
+    border-top: 1px solid var(--line);
+    cursor: pointer;
+    transition: background .3s ease, color .3s ease;
+    position: relative;
+  }
+  .index .row:last-child { border-bottom: 1px solid var(--line); }
+  .row:hover, .row:focus-visible { background: var(--ink); color: var(--bg); outline: none; }
+  .row:hover .row-sub, .row:hover .row-date, .row:hover .row-excerpt { color: var(--bg); opacity: .7; }
+  .row-num { font-size: 12px; color: var(--ink-soft); }
+  .row:hover .row-num { color: var(--bg); opacity: .5; }
+  .row-main { min-width: 0; }
+  .row-title {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    font-weight: 500;
+    margin: 0 0 4px;
+  }
+  .row-sub { font-size: 12.5px; color: var(--ink-soft); text-transform: none; }
+  .row-excerpt {
+    font-size: 13.5px; color: var(--ink-soft);
+    max-height: 0; overflow: hidden; opacity: 0;
+    transition: max-height .35s ease, opacity .3s ease, margin .35s ease;
+    margin-top: 0;
+  }
+  .row:hover .row-excerpt { max-height: 60px; opacity: .8; margin-top: 6px; }
+  .row-date { font-size: 12.5px; color: var(--ink-soft); white-space: nowrap; }
+  .row-del {
+    position: absolute; right: -4px; top: 14px;
+    width: 22px; height: 22px; border-radius: 50%;
+    border: 1px solid currentColor; opacity: 0;
+    background: transparent; color: inherit; font-size: 12px;
+    cursor: pointer; transition: opacity .2s ease;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .row:hover .row-del { opacity: .6; }
+  .row-del:hover { opacity: 1 !important; }
+
+  .empty { padding: 40px 0; color: var(--ink-soft); font-size: 14px; border-top: 1px solid var(--line); }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 26px 0 calc(40px + env(safe-area-inset-bottom, 0px));
+    font-size: 12.5px; color: var(--ink-soft);
+    display: flex; justify-content: space-between;
+  }
+
+  .intro { padding: 56px 0 10px; }
+  .intro h1 {
+    font-family: 'Fraunces', serif; font-weight: 500;
+    font-size: clamp(30px, 5.5vw, 44px); line-height: 1.1; letter-spacing: -.01em;
+    margin: 0 0 16px;
+  }
+  .intro h1 i { font-style: italic; color: var(--ink-soft); }
+  .intro p { font-size: 15px; line-height: 1.65; color: var(--ink-soft); max-width: 46ch; margin: 0; }
+
+  .chapters { padding: 20px 0 60px; }
+  .chapter-row {
+    display: grid;
+    grid-template-columns: 30px 1fr auto;
+    gap: 14px; align-items: center;
+    padding: 20px 14px; margin: 0 -14px;
+    border-top: 1px solid var(--line);
+    cursor: pointer; background: none; border-left: none; border-right: none; border-bottom: none;
+    width: calc(100% + 28px);
+    text-align: left; font-family: inherit; color: inherit;
+    transition: background .25s ease, color .25s ease;
+  }
+  .chapters .chapter-row:last-child { border-bottom: 1px solid var(--line); }
+  .chapter-row:hover, .chapter-row:focus-visible { background: var(--ink); color: var(--bg); outline: none; }
+  .chapter-row:hover .chapter-sub, .chapter-row:hover .chapter-best { color: var(--bg); opacity: .7; }
+  .chapter-num { font-size: 12px; color: var(--ink-soft); }
+  .chapter-row:hover .chapter-num { color: var(--bg); opacity: .5; }
+  .chapter-title { font-family: 'Fraunces', serif; font-size: 19px; font-weight: 500; margin: 0 0 4px; }
+  .chapter-sub { font-size: 12.5px; color: var(--ink-soft); }
+  .chapter-best { font-size: 12.5px; color: var(--ink-soft); white-space: nowrap; }
+
+  /* ---------- quiz screen ---------- */
+  .quiz-head { padding: 40px 0 0; }
+  .quiz-back {
+    background: none; border: none; font-family: 'Work Sans', sans-serif; font-size: 13px;
+    color: var(--ink-soft); cursor: pointer; padding: 0; margin-bottom: 18px;
+  }
+  .quiz-back:hover { color: var(--ink); }
+  .quiz-progress-label { font-size: 12.5px; color: var(--ink-soft); margin-bottom: 8px; }
+  .difficulty-badge {
+    display: inline-block; font-size: 11px; letter-spacing: .04em; text-transform: uppercase;
+    padding: 3px 10px; border: 1px solid var(--line); border-radius: 100px;
+    color: var(--ink-soft); margin-bottom: 16px;
+  }
+  .progress-track { height: 2px; background: var(--line); margin-bottom: 34px; }
+  .progress-fill { height: 100%; background: var(--ink); transition: width .35s ease; }
+
+  .question-text {
+    font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(20px, 3.4vw, 26px);
+    line-height: 1.3; margin: 0 0 26px; white-space: pre-wrap;
+  }
+  .question-text.is-code {
+    font-family: 'Menlo', 'Consolas', monospace; font-weight: 400;
+    font-size: clamp(14px, 2.4vw, 16px); line-height: 1.55;
+    background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 16px;
+  }
+
+  .options { padding-bottom: 20px; }
+  .option-btn {
+    display: flex; align-items: center; gap: 14px;
+    width: 100%; text-align: left; font-family: 'Work Sans', sans-serif; font-size: 15px;
+    background: none; border: 1px solid var(--line); border-radius: 8px;
+    padding: 14px 16px; margin-bottom: 10px; cursor: pointer; color: var(--ink);
+    transition: background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .option-btn:hover:not(:disabled) { border-color: var(--ink); }
+  .option-btn .opt-mark {
+    width: 20px; height: 20px; flex-shrink: 0; border: 1px solid var(--ink-soft); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-size: 12px;
+  }
+  .option-btn.is-correct { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .option-btn.is-correct .opt-mark { border-color: var(--bg); }
+  .option-btn.is-wrong { border-color: var(--ink); text-decoration: line-through; opacity: .6; }
+  .option-btn:disabled { cursor: default; }
+
+  .feedback-note {
+    font-size: 13.5px; color: var(--ink-soft); line-height: 1.6;
+    padding: 14px 0 4px; max-width: 52ch;
+  }
+
+  .quiz-actions { padding: 14px 0 60px; display: flex; justify-content: flex-end; }
+  .next-btn {
+    font-family: 'Work Sans', sans-serif; font-size: 14px; font-weight: 500;
+    padding: 12px 24px; border-radius: 100px; cursor: pointer;
+    background: var(--ink); color: var(--bg); border: 1px solid var(--ink);
+    transition: opacity .2s ease;
+  }
+  .next-btn:disabled { opacity: .3; cursor: default; }
+
+  /* ---------- result screen ---------- */
+  .result { padding: 64px 0 60px; text-align: center; }
+  .result-score {
+    font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(48px, 12vw, 72px);
+    line-height: 1; margin: 0 0 10px;
+  }
+  .result-label { font-size: 14px; color: var(--ink-soft); margin-bottom: 34px; }
+  .result-msg { font-size: 15px; color: var(--ink-soft); max-width: 42ch; margin: 0 auto 34px; }
+  .result-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    font-family: 'Work Sans', sans-serif; font-size: 14px; font-weight: 500;
+    padding: 12px 22px; border-radius: 100px; cursor: pointer; border: 1px solid var(--ink);
+  }
+  .btn-primary { background: var(--ink); color: var(--bg); }
+  .btn-ghost { background: transparent; color: var(--ink); }
+
+  .screen { display: none; }
+  .screen.active { display: block; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, .progress-fill, .option-btn, .chapter-row { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="mark" href="#" id="homeLink"><img class="mark-photo" src="data:image/jpeg;base64,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" alt="Sisir Bhattarai"></a>
+    <div class="topbar-right">
+      <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span class="lines"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="nav-overlay" id="navOverlay">
+  <div class="nav-overlay-inner">
+    <div class="nav-top">
+      <a class="mark" href="#" style="color:inherit" id="navHomeLink"><img class="mark-photo" src="data:image/jpeg;base64,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" alt="Sisir Bhattarai"></a>
+      <button class="burger open" id="burgerBtnInner" aria-label="Close menu" aria-expanded="true">
+        <span class="lines"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+    <ul class="nav-list" id="navList"></ul>
+    <div class="nav-foot">Grade 10 Computer Science · CDC Curriculum</div>
+  </div>
+</nav>
+
+<main class="shell">
+  <section id="screen-home" class="screen active">
+    <div class="intro">
+      <h1>Test what<br><i>you've learned.</i></h1>
+      <p>Practice questions drawn from every unit of the Grade 10 Computer Science textbook, following the CDC curriculum. Each chapter has 50+ questions that start easy and gradually get harder as you go.</p>
+    </div>
+    <div class="chapters" id="chapterList"></div>
+  </section>
+
+  <section id="screen-quiz" class="screen">
+    <div class="quiz-head">
+      <button class="quiz-back" id="backBtn">&larr; Back to chapters</button>
+      <div class="quiz-progress-label" id="progressLabel">Question 1 of 10</div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+    </div>
+    <div class="difficulty-badge" id="difficultyBadge">Easy</div>
+    <h2 class="question-text" id="questionText"></h2>
+    <div class="options" id="optionsList"></div>
+    <div class="feedback-note" id="feedbackNote"></div>
+    <div class="quiz-actions">
+      <button class="next-btn" id="nextBtn" disabled>Next</button>
+    </div>
+  </section>
+
+  <section id="screen-result" class="screen">
+    <div class="result">
+      <div class="result-score" id="resultScore">0/10</div>
+      <div class="result-label" id="resultChapter">Chapter</div>
+      <p class="result-msg" id="resultMsg"></p>
+      <div class="result-actions">
+        <button class="btn btn-primary" id="retryBtn">Try again</button>
+        <button class="btn btn-ghost" id="chaptersBtn">Choose another chapter</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="shell">
+  <span>Grade 10 Computer Science</span>
+  <span id="year"></span>
+</footer>
+
+<script>
+var QUIZ_DATA = {"unit1": {"title": "Computer Network and Communication", "questions": [{"q": "What does the term telecommunication mean?", "options": ["Repairing computer hardware", "Sending and receiving information over long distances using electronic devices", "Writing computer programs", "Storing files on a hard disk"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "What is Broadband?", "options": ["A type of computer virus", "A high-speed Internet connection", "A programming language", "A type of printer"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which of these is a type of broadband connection?", "options": ["DSL", "Cable", "Fiber-optic", "All of the above"], "correct": 3, "difficulty": "easy", "note": ""}, {"q": "What does Throughput measure?", "options": ["The price of an internet plan", "The actual amount of data successfully sent/received in a given time", "The length of a network cable", "The number of connected devices"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "What does Bandwidth measure?", "options": ["The maximum amount of data a network can carry in a given time", "The speed of a computer's processor", "The number of users online", "The brand of a router"], "correct": 0, "difficulty": "easy", "note": ""}, {"q": "In which unit is throughput/bandwidth commonly measured?", "options": ["Kilograms", "Litres", "Mbps (Megabits per second)", "Degrees Celsius"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "What is a data packet?", "options": ["A physical storage device", "A small unit of data sent over a network", "A type of network cable", "A computer virus"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which generation of mobile network is specifically credited with making video calls and multimedia messaging easy on phones?", "options": ["1G", "2G", "3G", "5G"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which generation of mobile network is designed to support IoT, smart cities, and self-driving cars?", "options": ["2G", "3G", "4G", "5G"], "correct": 3, "difficulty": "easy", "note": ""}, {"q": "In telecommunication, what does frequency measure?", "options": ["The cost of a signal", "How often a data signal is sent over a channel in one second", "The number of devices connected", "The length of a cable"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which of these is a unit of frequency?", "options": ["Mbps", "GHz", "Volts", "Bytes"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which mode of data transmission flows in only one direction?", "options": ["Simplex", "Half duplex", "Full duplex", "Broadband"], "correct": 0, "difficulty": "easy", "note": ""}, {"q": "Which of the following is an example of simplex communication mode?", "options": ["A phone call", "A walkie-talkie conversation", "Television broadcasting", "A video call"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which of the following is an example of full duplex communication?", "options": ["Radio broadcast", "A mobile phone call", "A newspaper", "A TV remote"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Guided communication media is also known as:", "options": ["Wireless media", "Wired media", "Satellite media", "Infrared media"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Unguided communication media is also known as:", "options": ["Wired media", "Cable media", "Wireless communication", "Fiber media"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which cable type supports speeds up to 1 Gbps over 100 metres and is commonly used for fast Ethernet?", "options": ["Coaxial cable", "CAT6", "Telephone wire", "HDMI cable"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "What does optical fiber use to transmit data?", "options": ["Electric current", "Sound waves", "Light signals", "Magnetism"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which wireless technology is commonly used for short-range connections like headphones and smartwatches?", "options": ["Satellite", "Bluetooth", "Fiber optic", "CAT6"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "RFID is mainly used for:", "options": ["Playing music", "Tracking and identifying items", "Editing videos", "Cooling computers"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "What is network topology?", "options": ["The brand of networking devices", "The interconnected pattern of network components", "The speed of a network", "The cost of setting up a network"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which topology connects all computers to a central hub or switch?", "options": ["Bus topology", "Ring topology", "Star topology", "Mesh topology"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which topology forms a closed loop where the last computer connects back to the first?", "options": ["Bus topology", "Star topology", "Ring topology", "Hybrid topology"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which topology uses a single central cable with terminators at both ends?", "options": ["Star topology", "Bus topology", "Ring topology", "Hybrid topology"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "A hybrid topology is best described as:", "options": ["A topology used only in small offices", "A combination of two or more different topologies", "A topology with no central device", "A topology that only uses wireless signals"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "What does PAN stand for?", "options": ["Public Area Network", "Personal Area Network", "Private Area Network", "Printer Access Network"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "What does LAN stand for?", "options": ["Local Area Network", "Large Area Network", "Limited Access Network", "Linked Area Network"], "correct": 0, "difficulty": "easy", "note": ""}, {"q": "What does MAN stand for in networking?", "options": ["Manual Area Network", "Metropolitan Area Network", "Main Area Network", "Managed Area Network"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "What does WAN stand for?", "options": ["Wide Area Network", "Wireless Area Network", "Wired Area Network", "Web Area Network"], "correct": 0, "difficulty": "easy", "note": ""}, {"q": "In a client-server network, what is a server?", "options": ["Any computer connected to the internet", "A specialized computer that controls resources and provides services", "A type of cable", "A wireless router only"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "In a peer-to-peer network, how do the connected computers relate to each other?", "options": ["One computer controls all the others", "All computers have equal relationships with each other", "Only the server can access files", "Computers cannot share resources"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which protocol is used to transmit files between computers?", "options": ["SMTP", "HTTP", "FTP", "DHCP"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which protocol automatically assigns an IP address to a device on a network?", "options": ["FTP", "DHCP", "SMTP", "NCP"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which protocol is used for sending e-mail?", "options": ["HTTP", "FTP", "SMTP", "DHCP"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "How many bits does an IPv4 address use?", "options": ["16 bits", "32 bits", "64 bits", "128 bits"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "How many bits does an IPv6 address use?", "options": ["32 bits", "64 bits", "100 bits", "128 bits"], "correct": 3, "difficulty": "easy", "note": ""}, {"q": "What is an Intranet?", "options": ["A network accessible to anyone in the world", "A private network accessible only within an organization", "A type of computer virus", "A wireless router"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "What is an Extranet?", "options": ["A fully public network", "A private network that gives selected external users controlled access", "A type of cable", "An old version of the Internet"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which command is used to test whether a device is reachable over a network?", "options": ["ipconfig", "ping", "tracert", "nslookup"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which command shows a computer's own IP address and default gateway?", "options": ["ping", "tracert", "ipconfig", "nslookup"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which connector type is commonly used to plug Ethernet cables into network ports?", "options": ["RJ45", "SC", "ST", "HDMI"], "correct": 0, "difficulty": "easy", "note": ""}, {"q": "A small classroom wants an inexpensive network with minimal cabling. Which topology suits this best?", "options": ["Mesh topology", "Bus topology", "Full duplex topology", "Satellite topology"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "Which type of network would best connect your phone to your wireless earbuds?", "options": ["WAN", "MAN", "PAN", "LAN"], "correct": 2, "difficulty": "medium", "note": ""}, {"q": "Why is optical fiber generally preferred over copper cables by Internet Service Providers?", "options": ["It is cheaper to produce", "It transmits data at very high speed with minimal loss over long distances", "It does not need any connectors", "It only works indoors"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "In a star topology, what happens if the central hub or switch itself fails?", "options": ["Nothing changes; all nodes keep working normally", "Only one node is affected", "The entire network goes down since every node depends on the central device", "The network automatically becomes a bus topology"], "correct": 2, "difficulty": "medium", "note": ""}, {"q": "Which network architecture offers centralized backup and generally stronger security?", "options": ["Peer-to-peer network", "Client-server network", "Bus topology", "Simplex network"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "If a network's bandwidth is 100 Mbps but the actual data transferred is only 60 Mbps, the 60 Mbps figure represents the network's:", "options": ["Frequency", "Throughput", "Topology", "Protocol"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "Which protocol provides a secure way to send and receive information on websites, protecting data from hackers?", "options": ["HTTP", "HTTPS", "FTP", "DHCP"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "Compared to IPv4, IPv6 was mainly developed to solve which problem?", "options": ["Slow internet speed", "The limited number of available IPv4 addresses", "High electricity cost", "Poor video quality"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "A company's internal staff portal, accessible only to employees, is an example of:", "options": ["The Internet", "An Intranet", "An Extranet", "A WAN"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "A vendor portal that gives a company's business partners limited access to certain resources is an example of:", "options": ["An Intranet", "An Extranet", "A LAN", "A PAN"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "A business needs cabling that supports 1 Gbps over distances up to 100 metres with good interference resistance. Which should they choose?", "options": ["Telephone wire", "CAT6 cable", "Infrared", "RFID"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "Wi-Fi and Bluetooth most commonly share which frequency band?", "options": ["900 MHz", "1.8 GHz", "2.4 GHz", "60 GHz"], "correct": 2, "difficulty": "medium", "note": ""}, {"q": "Why does ring topology typically use repeaters when the number of nodes is large?", "options": ["To reduce the cost of cabling", "To boost and regenerate the signal as it passes sequentially around the loop", "To convert the topology into a star", "To block unauthorized users"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "A city-wide cable TV network connecting several LANs across a city is an example of a:", "options": ["PAN", "LAN", "MAN", "Simplex network"], "correct": 2, "difficulty": "medium", "note": ""}, {"q": "A rural area with no cable infrastructure gets its internet through signals from space. This is an example of:", "options": ["Fiber-optic broadband", "Satellite broadband", "DSL broadband", "Cable broadband"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "Which of these best distinguishes bandwidth from throughput?", "options": ["Bandwidth is the maximum capacity; throughput is the actual data transferred", "They mean exactly the same thing", "Throughput is always higher than bandwidth", "Bandwidth is measured in metres"], "correct": 0, "difficulty": "medium", "note": ""}, {"q": "A hospital needs centralized control of records with strong, centrally-managed security. Which network architecture fits best?", "options": ["Peer-to-peer", "Client-server", "Ring topology only", "Simplex mode"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "Which of these addresses is written in the correct IPv4 format?", "options": ["192.168.1.1", "2001:0db8:85a3::8a2e:0370:7334", "FF-FF-FF-FF-FF-FF", "255-255-255-0"], "correct": 0, "difficulty": "medium", "note": ""}, {"q": "Which of these addresses is written in the correct IPv6 format?", "options": ["192.168.0.1", "2001:0db8:85a3:0000:0000:8a2e:0370:7334", "10.0.0.255", "172.16.254.1"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "A network administrator wants to find out how many \"hops\" data takes to reach a website. Which command should they use?", "options": ["ping", "ipconfig", "tracert", "nslookup"], "correct": 2, "difficulty": "medium", "note": ""}, {"q": "A smart city project needs to connect thousands of sensors, each requiring its own unique address, across the whole city. Why would IPv6 be essential here rather than IPv4?", "options": ["IPv6 is cheaper to license", "IPv6's much larger address space avoids the address exhaustion IPv4 would face with so many devices", "IPv6 does not need routers", "IPv6 only works with fiber optic cables"], "correct": 1, "difficulty": "hard", "note": ""}, {"q": "A network engineer is designing a system where: all computers connect to one another sequentially, data travels in one direction around the loop, and repeaters are used to maintain signal strength for a large number of nodes. Which topology is being described?", "options": ["Star topology", "Bus topology", "Ring topology", "Hybrid topology"], "correct": 2, "difficulty": "hard", "note": ""}, {"q": "A company has several star networks in different departments, all linked together using a shared bus backbone. This design is an example of:", "options": ["Pure star topology", "Pure bus topology", "Hybrid topology", "Pure ring topology"], "correct": 2, "difficulty": "hard", "note": ""}, {"q": "Which combination correctly matches a communication mode with a real example AND its directionality?", "options": ["Simplex — mobile phone call — bidirectional simultaneous", "Half duplex — walkie-talkie — bidirectional, one direction at a time", "Full duplex — television broadcast — one direction only", "Simplex — walkie-talkie — bidirectional simultaneous"], "correct": 1, "difficulty": "hard", "note": ""}, {"q": "A video conferencing app lets two people see and hear each other at the exact same time, with no need to take turns. Which communication mode does this rely on?", "options": ["Simplex mode", "Half duplex mode", "Full duplex mode", "Broadcast mode"], "correct": 2, "difficulty": "hard", "note": ""}, {"q": "Why might a client-server network be chosen over a peer-to-peer network for a school's computer lab, despite the higher setup cost?", "options": ["Peer-to-peer networks cannot connect more than two computers", "Client-server networks provide centralized backup, administration, and stronger security", "Peer-to-peer networks do not support wireless connections", "Client-server networks are always wireless"], "correct": 1, "difficulty": "hard", "note": ""}, {"q": "In the comparison between guided and unguided media, which statement is accurate?", "options": ["Guided media is affected by weather, unguided media is not", "Unguided media provides a fixed path for data while guided media does not", "Guided media connects close devices like a LAN, while unguided media can connect devices far apart like in a WAN", "Both media types always use physical cables"], "correct": 2, "difficulty": "hard", "note": ""}, {"q": "An ISP backbone needs to carry enormous amounts of data over very long distances with minimal signal loss. Based on the comparison of transmission media, which is the most suitable choice?", "options": ["Twisted pair cable", "Coaxial cable", "Optical fiber cable", "Infrared"], "correct": 2, "difficulty": "hard", "note": ""}, {"q": "A network has 100 devices, each needing to talk directly to every other device without relying on a central server, and the failure of one device should not disrupt the others. Which architecture best matches these requirements?", "options": ["Client-server with one central server", "Peer-to-peer network", "Simplex broadcast network", "A single bus topology with one terminator"], "correct": 1, "difficulty": "hard", "note": ""}, {"q": "Which statement correctly differentiates IPv4 from IPv6 based on their technical specifications?", "options": ["IPv4 has a 128-byte header; IPv6 has a 20-byte header", "IPv4 addresses are hexadecimal; IPv6 addresses are decimal", "IPv6 provides built-in encryption and authentication while standard IPv4 does not", "IPv4 supports about 3.4×10^38 addresses, far more than IPv6"], "correct": 2, "difficulty": "hard", "note": ""}, {"q": "A university wants employees to access internal research data, while also giving a few trusted partner universities limited access to specific shared datasets. What combination of networks addresses both needs?", "options": ["Internet for employees, Intranet for partners", "Intranet for employees, Extranet for partner universities", "Extranet for employees, Internet for partners", "LAN for employees, PAN for partners"], "correct": 1, "difficulty": "hard", "note": ""}, {"q": "Considering CAT6's features, which scenario would most clearly call for upgrading from an older CAT5e cable to CAT6?", "options": ["A home user who only browses email occasionally", "A data center needing stable, high-speed connections with reduced signal interference", "A single device with no network connection", "A wireless-only office with no cabling at all"], "correct": 1, "difficulty": "hard", "note": ""}]}, "unit2": {"title": "Database Management System", "questions": [{"q": "What is data?", "options": ["Processed and meaningful information", "A collection of raw, unprocessed facts or figures", "A type of database software", "A network protocol"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "What is information?", "options": ["Raw, unorganized facts", "The useful result obtained after arranging or processing data", "A type of SQL command", "A database table"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "What is a database?", "options": ["A single file on a computer", "An organized collection of data that can be easily accessed, managed and updated", "A programming language", "A type of network cable"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "What does DBMS stand for?", "options": ["Data Backup Management System", "Database Management System", "Digital Business Management Software", "Data Base Monitoring Service"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which of the following is an example of DBMS software?", "options": ["MySQL", "Oracle Database", "Microsoft SQL Server", "All of the above"], "correct": 3, "difficulty": "easy", "note": ""}, {"q": "Which of the following is NOT a function of a DBMS?", "options": ["Data storage", "Data retrieval", "Word processing", "Data manipulation"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "What is a table in a database?", "options": ["A SQL keyword", "A structured way to store data in rows and columns", "A type of network device", "A kind of data type"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "In a database table, what is a field also known as?", "options": ["A row", "A column", "A key", "A database"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "In a database table, what is a record also known as?", "options": ["A column", "A field", "A row", "A data type"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which type of key uniquely identifies each record in a table?", "options": ["Foreign Key", "Composite Key", "Primary Key", "Candidate Key"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "What is the primary purpose of a foreign key?", "options": ["To store only text data", "To establish and enforce relationships between tables", "To combine multiple fields into one", "To speed up the computer's processor"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which SQL data type is used to store whole numbers?", "options": ["VARCHAR", "INT", "DATE", "BOOLEAN"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which SQL data type stores fixed-length text?", "options": ["VARCHAR(n)", "CHAR(n)", "TEXT", "INT"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which SQL data type stores variable-length text up to n characters?", "options": ["CHAR(n)", "VARCHAR(n)", "INT", "DATE"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which SQL data type stores only a date value (e.g. 2082-07-06)?", "options": ["TIME", "DATE", "BOOLEAN", "TEXT"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which SQL data type stores only TRUE or FALSE values?", "options": ["INT", "VARCHAR", "BOOLEAN", "DATE"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which SQL command is used to add new rows to a table?", "options": ["SELECT", "UPDATE", "INSERT", "DELETE"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which SQL command is used to modify existing data in a table?", "options": ["SELECT", "UPDATE", "INSERT", "DELETE"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which SQL command is used to remove rows from a table?", "options": ["SELECT", "UPDATE", "DELETE", "INSERT"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which SQL clause is used to filter rows based on a condition?", "options": ["SELECT", "FROM", "WHERE", "ORDER BY"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "What is MySQL?", "options": ["A programming language for games", "A popular open-source relational database management system", "A type of network cable", "An image editing tool"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which organization currently maintains MySQL?", "options": ["Microsoft", "Oracle Corporation", "Google", "Apple"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "What does RDBMS stand for?", "options": ["Random Database Management System", "Relational Database Management System", "Remote Data Backup Management System", "Rapid Database Mining System"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which language is used to communicate with a relational database like MySQL?", "options": ["HTML", "SQL", "CSS", "Python only"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "SQL is made up of which sub-languages?", "options": ["HTML, CSS, JS", "DDL, DML, DCL", "RAM, ROM, CPU", "LAN, MAN, WAN"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which MySQL constraint ensures a column cannot contain duplicate or NULL values?", "options": ["NOT NULL", "PRIMARY KEY", "DEFAULT", "CHECK"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which MySQL constraint prevents a column from having empty (NULL) values?", "options": ["UNIQUE", "CHECK", "NOT NULL", "DEFAULT"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which MySQL constraint ensures all values in a column are different from each other?", "options": ["UNIQUE", "DEFAULT", "FOREIGN KEY", "CHECK"], "correct": 0, "difficulty": "easy", "note": ""}, {"q": "Which command is used to create a new table in SQL?", "options": ["SELECT TABLE", "CREATE TABLE", "ADD TABLE", "MAKE TABLE"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which command is used to remove an entire table from a database?", "options": ["DELETE TABLE", "REMOVE TABLE", "DROP TABLE", "CLEAR TABLE"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which SQL command type does CREATE, ALTER, and DROP belong to?", "options": ["DML", "DDL", "DCL", "TCL"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which SQL command type does INSERT, UPDATE, and DELETE belong to?", "options": ["DDL", "DML", "DCL", "TCL"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "What does the SQL LIKE clause help you do?", "options": ["Perform exact numeric matches", "Search for patterns in text data", "Sort the data", "Delete a table"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which clause is used to sort query results?", "options": ["WHERE", "ORDER BY", "GROUP BY", "FROM"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "In a one-to-many relationship between teachers and classes, which statement is true?", "options": ["Each teacher teaches only one class, and each class has only one teacher", "Each teacher can teach multiple classes, and each class has only one teacher", "Each teacher teaches only one class, and each class can have multiple teachers", "Each teacher can teach multiple classes, and each class can have multiple teachers"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "What is the primary difference between CHAR(n) and VARCHAR(n)?", "options": ["CHAR stores only numeric data, VARCHAR stores text", "CHAR has a fixed length, VARCHAR has a variable length up to n characters", "VARCHAR is used for dates, CHAR is for text", "There is no difference between them"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "Why does a DBMS reduce data redundancy compared to storing data in separate spreadsheets?", "options": ["It deletes data automatically every day", "It centralizes data storage and promotes normalization so data isn't repeated unnecessarily", "It compresses all files into ZIP format", "It only allows one user to access data at a time"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "Which of these is an example of a NoSQL database mentioned as handling large volumes of unstructured data?", "options": ["MySQL", "Oracle", "MongoDB", "Microsoft SQL Server"], "correct": 2, "difficulty": "medium", "note": ""}, {"q": "An in-memory database like Redis is notable mainly because it:", "options": ["Stores data permanently on a hard disk only", "Stores data in the system's main memory for ultra-fast retrieval", "Cannot be used for large applications", "Replaces the need for any DBMS software"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "A 'student_courses' table that links a 'students' table and a 'courses' table together is an example of:", "options": ["A primary key only", "A relational table connecting two entities using keys", "An unstructured database", "A data type"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "Which constraint would you use to automatically assign a value to a column when no value is provided during insertion?", "options": ["CHECK", "DEFAULT", "UNIQUE", "NOT NULL"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "Which constraint would best prevent a 'discount' column from ever storing a negative number?", "options": ["UNIQUE", "DEFAULT", "CHECK", "NOT NULL"], "correct": 2, "difficulty": "medium", "note": ""}, {"q": "A foreign key in an 'Orders' table pointing to the 'CustomerID' in a 'Customers' table mainly ensures:", "options": ["Faster processor speed", "That every order is linked to a valid, existing customer", "That customer names are always capitalized", "That the Orders table has no primary key"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "Which SQL data type would be most efficient for storing a product price with exact decimal precision?", "options": ["INT", "DECIMAL(p,s)", "BOOLEAN", "TEXT"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "Which SQL data type would best store a long product description paragraph?", "options": ["CHAR(10)", "INT", "TEXT", "BOOLEAN"], "correct": 2, "difficulty": "medium", "note": ""}, {"q": "Why might a developer choose cloud databases over traditional on-premise databases?", "options": ["Cloud databases cannot be scaled", "Cloud computing offers scalability, flexibility, and cost-efficiency", "Cloud databases are always slower", "Cloud databases do not need the internet"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "A query that retrieves only students scoring above 80 marks would primarily use which clause?", "options": ["ORDER BY", "WHERE", "GROUP BY", "CREATE"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "Which feature of DBMS ensures that an incorrectly formatted phone number cannot be stored?", "options": ["Data redundancy control", "Data integrity", "Data backup", "Multiple user access"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "A school database stores Student_ID, Name, Class, and Date of Birth for every student. If two students accidentally share the same Student_ID, which key constraint has been violated?", "options": ["NOT NULL", "PRIMARY KEY (uniqueness)", "DEFAULT", "CHECK"], "correct": 1, "difficulty": "hard", "note": ""}, {"q": "A company wants multiple branch offices to access and update the same customer records in real time, with strong consistency and centralized management. Which type of database setup best fits, based on the chapter's description of distributed and cloud databases?", "options": ["A single spreadsheet shared by email", "A cloud or distributed database accessible over the internet", "A paper-based filing system", "A local-only database with no network access"], "correct": 1, "difficulty": "hard", "note": ""}, {"q": "Given tables Teachers(TeacherID, Name) and Classes(ClassID, ClassName, TeacherID), which SQL concept allows you to find which teacher is assigned to each class?", "options": ["Using the TeacherID as a foreign key in Classes to relate it to the primary key in Teachers", "Merging both tables into one column", "Deleting the Teachers table entirely", "Using the BOOLEAN data type for TeacherID"], "correct": 0, "difficulty": "hard", "note": ""}, {"q": "A hiring system requires that no employee record can be saved without an email address, and no two employees can share the same email. Which combination of constraints should be applied to the email column?", "options": ["DEFAULT and CHECK", "NOT NULL and UNIQUE", "FOREIGN KEY and DEFAULT", "CHECK and FOREIGN KEY"], "correct": 1, "difficulty": "hard", "note": ""}, {"q": "A retail company needs to store millions of unstructured product reviews with varying fields per review. Based on the chapter's comparison of database trends, which type of database is best suited?", "options": ["A traditional RDBMS with a fixed schema only", "A NoSQL database like MongoDB", "A single CSV file", "A CHAR(10) column in MySQL"], "correct": 1, "difficulty": "hard", "note": ""}, {"q": "Which scenario correctly demonstrates why normalization (through good database design) reduces data redundancy?", "options": ["Storing a customer's full address repeatedly in every order row instead of linking to a single Customers table", "Storing a customer's address once in a Customers table and referencing it via a foreign key in the Orders table", "Using the TEXT data type for every column in every table", "Avoiding the use of any keys in the database"], "correct": 1, "difficulty": "hard", "note": ""}, {"q": "A table design stores Student_ID as the primary key, but a new requirement says a 'StudentEmail' column must also never repeat across records, even though it isn't the primary key. Which constraint satisfies this?", "options": ["FOREIGN KEY", "UNIQUE", "DEFAULT", "DECIMAL"], "correct": 1, "difficulty": "hard", "note": ""}, {"q": "Comparing CHAR(10) and VARCHAR(10) when storing the 3-letter value \"Cat\", which statement is accurate?", "options": ["CHAR(10) will pad the stored value to use all 10 characters, while VARCHAR(10) stores only the 3 characters needed", "Both will store exactly 3 characters with no difference in storage", "VARCHAR(10) always uses more storage than CHAR(10)", "CHAR(10) cannot store text shorter than 10 characters at all"], "correct": 0, "difficulty": "hard", "note": ""}]}, "unit3": {"title": "Multimedia", "questions": [{"q": "What does the term \"Multimedia\" mean?", "options": ["A single type of media only", "Many different types of media combined together", "A type of computer hardware", "A network protocol"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which of these is a component of multimedia?", "options": ["Text", "Graphics", "Audio", "All of the above"], "correct": 3, "difficulty": "easy", "note": ""}, {"q": "Which of these is NOT typically listed as a core component of multimedia?", "options": ["Video", "Animation", "Spreadsheet formulas", "Text"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which field uses multimedia for e-books, online courses, and simulations?", "options": ["Education", "Entertainment", "Business", "None of the above"], "correct": 0, "difficulty": "easy", "note": ""}, {"q": "Which field uses multimedia mainly for advertisements to capture audience attention?", "options": ["Education", "Business", "Communication", "Entertainment"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "What is a drawback of multimedia mentioned in the chapter?", "options": ["It makes communication more engaging", "Costly and inaccessible hardware/software", "It enhances learning experiences", "It is always free to use"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which text file format only stores plain text content with no styling?", "options": ["DOCX", "RTF", "TXT", "PDF"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which text file format can store text along with styles like colour and indentation, and stands for Rich Text Format?", "options": ["TXT", "RTF", "PNG", "SVG"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "DOCX is the native file format of which application?", "options": ["Notepad", "Microsoft Word", "Adobe Photoshop", "MySQL Workbench"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "What does a pixel stand for?", "options": ["Picture Element", "Pixel Element", "Printed Element", "Pictorial Exhibit"], "correct": 0, "difficulty": "easy", "note": ""}, {"q": "Raster graphics are also known as:", "options": ["Vector graphics", "Bitmap graphics", "Scalable graphics", "Text graphics"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Vector graphics are made up of:", "options": ["Pixels", "Bezier curves stored as mathematical formulas", "Audio waveforms", "Video frames"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which image format supports transparency and is commonly used for logos?", "options": ["JPG", "PNG", "MP3", "WAV"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which image format is the only common one that supports animation?", "options": ["PNG", "JPG", "GIF", "SVG"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which image format is most commonly used for high-quality photos with good compression and small file size?", "options": ["GIF", "JPG/JPEG", "SVG", "TXT"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which vector graphics format is commonly supported by most applications and stands for Scalable Vector Graphics?", "options": ["SVG", "PNG", "GIF", "MP3"], "correct": 0, "difficulty": "easy", "note": ""}, {"q": "Which file format can contain both raster and vector graphics and is commonly used to share documents online?", "options": ["JPG", "PDF", "GIF", "WAV"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which of these is a graphics editing application mentioned in the chapter?", "options": ["Pixlr X", "MySQL Workbench", "Notepad", "Scratch"], "correct": 0, "difficulty": "easy", "note": ""}, {"q": "What does Amplitude represent in an audio waveform?", "options": ["The wavelength of sound", "The loudness of sound", "The file format", "The video resolution"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which audio format is known for effective compression and is commonly used for sharing music files?", "options": ["WAV", "MP3", "BMP", "SVG"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "What does Resolution refer to in video?", "options": ["The number of frames per second", "The amount of audio compression", "The number of pixels in width and height", "The length of the video"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which video format is commonly used for high compression and wide compatibility?", "options": ["AVI", "MP4", "BMP", "TXT"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "In 3D animation, which three dimensions contribute to the sense of perspective?", "options": ["Width, height, and depth", "Width, length, and weight", "Height, colour, and sound", "Length and brightness only"], "correct": 0, "difficulty": "easy", "note": ""}, {"q": "What is a key characteristic of 2D animation?", "options": ["It is modeled and rigged in 3D software", "It is drawn frame by frame", "It always uses depth as a third dimension", "It cannot be used in cartoons"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which app is mentioned as using voice, text, sound effects, and animation to teach languages?", "options": ["YouTube", "Duolingo", "Google Earth", "MySQL"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "When was the term \"multimedia\" first used, according to the chapter?", "options": ["1966", "1990", "2000", "2010"], "correct": 0, "difficulty": "easy", "note": ""}, {"q": "Which graphics editor is described as a free online photo and graphics editing tool?", "options": ["MySQL Workbench", "Pixlr X", "Scratch", "Notepad"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "In Pixlr X, which panel is used to manage and organize image, graphics, and text layers?", "options": ["Canvas area", "Tools panel", "Layers panel", "Navigation tools"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which of these is a common text editor mentioned in the chapter?", "options": ["Notepad", "Pixlr X", "MySQL Workbench", "Scratch"], "correct": 0, "difficulty": "easy", "note": ""}, {"q": "Which of these is a common graphics editor mentioned alongside Pixlr X?", "options": ["Adobe Photoshop", "MySQL", "FileZilla", "Notepad"], "correct": 0, "difficulty": "easy", "note": ""}, {"q": "In Pixlr X, which area is the workspace for viewing and editing images?", "options": ["Tools panel", "Canvas area", "Navigation tools", "Layers panel"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which streaming platform is mentioned as combining video, sound, thumbnails, and live chat?", "options": ["Duolingo", "YouTube", "Google Earth", "TikTok"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Roughly what share of online content traffic is video, according to the chapter?", "options": ["More than 80%", "Less than 10%", "Exactly 50%", "0%"], "correct": 0, "difficulty": "easy", "note": ""}, {"q": "A company logo needs to be resized from a tiny icon to a huge billboard without losing quality. Which graphics type should be used?", "options": ["Raster graphics", "Vector graphics", "GIF animation", "WAV audio"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "Why does a vector graphic maintain the same quality regardless of size, while a raster graphic loses quality when enlarged?", "options": ["Vector graphics use pixels like raster images do", "Vector graphics are stored as mathematical formulas (curves) rather than fixed pixels", "Raster graphics are always smaller in file size", "Vector graphics cannot be edited"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "Why is PDF considered a versatile graphics format for sharing documents online?", "options": ["It can only store plain text", "It can contain both raster and vector graphics depending on how it was saved", "It is the only format that supports animation", "It cannot be opened on mobile devices"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "Why is MP3 so widely used for sharing audio files despite not having the best possible audio quality?", "options": ["It has no compression at all", "It offers effective compression that keeps file sizes small while remaining widely compatible", "It only works on one brand of device", "It cannot be streamed online"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "A short, looping animation for a social media post needs transparency and simple animation support in one file. Which format fits best?", "options": ["JPG", "GIF", "WAV", "MP4"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "If a video's resolution is increased while frame rate stays the same, what improves?", "options": ["The audio loudness", "The number of pixels (detail) in each frame", "The playback speed", "The file format automatically changes"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "Which statement best explains why multimedia can make learning more engaging in an educational app?", "options": ["It combines text, images, audio, video, and animation into one integrated experience", "It removes the need for any text at all", "It only uses still images", "It requires no internet connection ever"], "correct": 0, "difficulty": "medium", "note": ""}, {"q": "A business wants to advertise a product with eye-catching visuals and sound to grab attention quickly. Which application of multimedia does this represent?", "options": ["Education", "Entertainment", "Business (advertising)", "Communication"], "correct": 2, "difficulty": "medium", "note": ""}, {"q": "Which of these accurately differentiates 2D from 3D animation based on the chapter?", "options": ["2D animation is modeled and rigged with depth, while 3D is drawn frame by frame", "2D animation is drawn frame by frame, while 3D animation is modeled with width, height, and depth", "Both use exactly the same production process", "3D animation cannot be used in movies"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "A video conferencing app like Google Meet relies on which combination of multimedia components the most?", "options": ["Text and graphics only", "Audio and video together, often alongside text chat", "Animation only", "Vector graphics only"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "Which application mixes satellite images, text labels, and 3D maps for exploration?", "options": ["Google Earth", "Duolingo", "TikTok", "Pixlr X"], "correct": 0, "difficulty": "medium", "note": ""}, {"q": "A designer needs an image that (a) keeps perfect quality at any size and (b) is also small in file size for a simple logo with flat colours. Which format best satisfies both requirements?", "options": ["JPG, because of its compression", "GIF, because it supports many colours", "SVG, because it is a scalable vector format with small file size for simple shapes", "WAV, because it supports transparency"], "correct": 2, "difficulty": "hard", "note": ""}, {"q": "A photographer needs to store thousands of high-resolution photographs with the smallest possible file size while accepting some quality loss. Which format is most appropriate, and why?", "options": ["PNG, because it supports transparency", "JPG, because it offers high compression suited to photographic images", "SVG, because it uses mathematical curves", "GIF, because it supports animation"], "correct": 1, "difficulty": "hard", "note": ""}, {"q": "A company wants to share a contract online that must preserve exact formatting, work on any device, and may include both scanned (raster) signatures and vector-drawn diagrams. Which format addresses all these needs?", "options": ["TXT", "GIF", "PDF", "MP3"], "correct": 2, "difficulty": "hard", "note": ""}, {"q": "An app needs to show a short, repeating, silent clip with transparency on a webpage, such as a loading spinner. Based on the formats discussed, which is the most historically standard choice, despite newer alternatives existing?", "options": ["JPG", "GIF", "WAV", "SVG"], "correct": 1, "difficulty": "hard", "note": ""}, {"q": "Considering amplitude and resolution as separate concepts, which pairing is correct?", "options": ["Amplitude relates to video pixel count; resolution relates to sound loudness", "Amplitude relates to sound loudness; resolution relates to the number of pixels in a video frame", "Both amplitude and resolution measure exactly the same thing", "Neither amplitude nor resolution apply to multimedia"], "correct": 1, "difficulty": "hard", "note": ""}, {"q": "A game studio is choosing between 2D and 3D animation for a new mobile game that needs realistic depth and camera movement around characters. Which approach fits, and why?", "options": ["2D animation, because it is drawn frame by frame and simpler", "3D animation, because characters are modeled and rigged with width, height, and depth, enabling realistic perspective", "Neither, because animation cannot show depth", "2D animation, because it does not require any software"], "correct": 1, "difficulty": "hard", "note": ""}, {"q": "Why might a business choose PNG over JPG specifically for a website's logo that needs to sit on different coloured backgrounds?", "options": ["PNG supports transparency, so the logo blends with any background colour, while JPG does not", "JPG files are always smaller than PNG files", "PNG cannot be used for logos at all", "JPG supports animation but PNG does not"], "correct": 0, "difficulty": "hard", "note": ""}]}, "unit4": {"title": "Programming in Python", "questions": [{"q": "Which statement is used to display output in Python?", "options": ["input()", "print()", "display()", "output()"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which of the following is NOT a valid Python data type mentioned in the text?", "options": ["int", "float", "character", "bool"], "correct": 2, "difficulty": "easy", "note": "Python uses str for text, not a separate ‘character’ type."}, {"q": "What type of values does the Boolean data type hold?", "options": ["Whole numbers", "Decimal numbers", "Text", "True or False"], "correct": 3, "difficulty": "easy", "note": ""}, {"q": "Which of the following is an example of a relational operator?", "options": ["+", "*", "==", "and"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which logical operator returns True if both conditions are true?", "options": ["or", "not", "and", "!="], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "What is the purpose of the if statement in Python?", "options": ["To repeat a block of code", "To define a function", "To execute a block of code only if a condition is true", "To store multiple items in a single variable"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "What is the term for repeating a block of code multiple times?", "options": ["Selection", "Iteration", "Condition", "Assignment"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which type of loop is used when you know the number of times you want to repeat a block of code?", "options": ["while loop", "for loop", "if loop", "nested loop"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which data structure stores multiple items in a single variable, as in [“Computer”, “Science”, 20, True]?", "options": ["String", "Tuple", "List", "Dictionary"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which keyword is used to define a user-defined function in Python?", "options": ["function", "define", "def", "func"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "What are the values passed to a function when it is called known as?", "options": ["Parameters", "Arguments", "Return values", "Scope"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Variables declared inside a function have:", "options": ["Global scope", "Local scope", "Unlimited scope", "No scope"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "What does the return statement do in a Python function?", "options": ["Prints output to the console", "Takes input from the user", "Sends a value back to the caller of the function", "Defines the function"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "What are the values specified in the function header within the parentheses called?", "options": ["Arguments", "Parameters", "Return values", "Local variables"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "A collection of modules that together supply specific needs or applications is called a:", "options": ["Module", "Package", "Library", "Function"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which of the following is a popular Python library used for data manipulation and analysis?", "options": ["Math", "Random", "Pandas", "Turtle"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "What is a container that contains various functions to perform specific tasks in Python?", "options": ["Module", "Library", "Package", "Function"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which statement is used to access modules or files from a Python package?", "options": ["include", "use", "import", "access"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which Python library provides functions for generating random numbers?", "options": ["Math", "Random", "Pandas", "Matplotlib"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "What type of error occurs when code violates the syntax rules of the programming language?", "options": ["Runtime Error", "Logical Error", "Syntax Error", "Exception"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which block is used to test a block of code for potential errors in Python?", "options": ["catch", "handle", "try", "error"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which Python library is particularly useful for simplifying file handling of structured data like CSV files?", "options": ["math", "random", "pandas", "turtle"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "What is the primary function used in Pandas to read data from a CSV file?", "options": ["open()", "read_file()", "pd.read_csv()", "df.read_csv()"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which Pandas method is used to write a DataFrame to a CSV file?", "options": ["write_csv()", "to_file()", "df.to_csv()", "pd.write_csv()"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "What is the default separator Pandas uses when reading or writing CSV files?", "options": ["semicolon (;)", "tab (\\t)", "comma (,)", "space ( )"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which mode should be used with the built-in open() function to read a file?", "options": ["“w”", "“a”", "“r”", "“x”"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which open() mode overwrites the file if it exists or creates a new one if it doesn’t?", "options": ["“r”", "“a”", "“w”", "“x”"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "What is the primary goal of data visualization?", "options": ["To store data efficiently", "To perform complex calculations on data", "To understand data through visual context", "To secure data from unauthorized access"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which of the following is a popular Python library for creating basic graphs like line and bar charts?", "options": ["Seaborn", "Plotly", "Matplotlib", "Pandas"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which type of plot uses dots to represent relationships between variables?", "options": ["Bar chart", "Line chart", "Scatter plot", "Pie plot"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "What type of chart uses rectangular bars to represent data categories?", "options": ["Scatter plot", "Line chart", "Bar chart", "Pie plot"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which Matplotlib function is commonly used to create a pie chart?", "options": ["plt.scatter()", "plt.plot()", "plt.bar()", "plt.pie()"], "correct": 3, "difficulty": "easy", "note": ""}, {"q": "Which symbol is used to write a comment in Python?", "options": ["//", "#", "<!-- -->", "/* */"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which of these is a valid Python variable name?", "options": ["2value", "my-value", "my_value", "my value"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "What is the result of 10 % 3 in Python?", "options": ["3", "1", "0", "3.33"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which operator is used for exponentiation (power) in Python?", "options": ["^", "**", "%%", "exp()"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which keyword is used to exit a loop early in Python?", "options": ["stop", "exit", "break", "end"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which keyword skips the current loop iteration and continues with the next one?", "options": ["skip", "continue", "pass", "next"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which conditional statement allows you to check multiple conditions in sequence?", "options": ["if", "if-else", "nested if", "if-elif-else"], "correct": 3, "difficulty": "medium", "note": ""}, {"q": "The part of the program where a function can be accessed is called its:", "options": ["Parameter", "Argument", "Return type", "Scope"], "correct": 3, "difficulty": "medium", "note": ""}, {"q": "What type of argument allows you to call a function by specifying the parameter names?", "options": ["Positional arguments", "Default arguments", "Keyword arguments", "Required arguments"], "correct": 2, "difficulty": "medium", "note": ""}, {"q": "A function that performs an action but does not explicitly return a value is sometimes referred to as a:", "options": ["Non-void function", "Void function", "Recursive function", "Anonymous function"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "Can a Python function return multiple values?", "options": ["No", "Yes, as a list", "Yes, as a tuple", "Yes, directly separated by commas"], "correct": 2, "difficulty": "medium", "note": "Python packs comma-separated return values into a tuple automatically."}, {"q": "Which of the following is NOT a standard way to import a module in Python?", "options": ["import module_name", "from module_name import function_name", "import module_name as alias", "get function_name from module_name"], "correct": 3, "difficulty": "medium", "note": ""}, {"q": "Errors detected during program execution are called:", "options": ["Syntax Errors", "Logical Errors", "Exceptions", "Warnings"], "correct": 2, "difficulty": "medium", "note": ""}, {"q": "Which block in error handling always executes, regardless of whether an exception occurred or not?", "options": ["else", "finally", "except", "try"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "When reading a CSV file with Pandas, which parameter in read_csv() specifies the separator between values?", "options": ["separator", "sep", "delimiter", "value_sep"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "What attribute of a Pandas DataFrame gives you the header/field names after reading a CSV file?", "options": ["headers", "columns", "fields", "names"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "When writing a DataFrame to CSV using to_csv(), what does the parameter index=False do?", "options": ["Includes the index as a column in the CSV", "Removes the header row from the CSV", "Excludes the index column from the CSV", "Sorts the data based on the index"], "correct": 2, "difficulty": "medium", "note": ""}, {"q": "Which Pandas function is used to create a DataFrame from a dictionary or a list of lists?", "options": ["read_csv()", "to_csv()", "pd.DataFrame()", "create_df()"], "correct": 2, "difficulty": "medium", "note": ""}, {"q": "Which data visualization library is built on Matplotlib and offers advanced statistical visualizations?", "options": ["Plotly", "Pandas", "Seaborn", "GGPlot"], "correct": 2, "difficulty": "medium", "note": ""}, {"q": "Which Plotly method is used to create a scatter plot?", "options": ["scatter()", "line()", "bar()", "pie()"], "correct": 0, "difficulty": "medium", "note": ""}, {"q": "Which Plotly Express function is used to create a line chart?", "options": ["px.scatter()", "px.line()", "px.bar()", "px.pie()"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "Which Plotly Express function is used to create a bar chart?", "options": ["px.scatter()", "px.line()", "px.bar()", "px.histogram()"], "correct": 2, "difficulty": "medium", "note": ""}, {"q": "What will the following code print?\nfor i in range(2, 10, 3):\n    print(i)", "options": ["2 5 8", "2 3 4 5 6 7 8 9", "2 4 6 8", "3 6 9"], "correct": 0, "difficulty": "medium", "note": ""}, {"q": "What will x be after this code runs?\nx = 5\nif x > 10:\n    x = 1\nelif x > 3:\n    x = 2\nelse:\n    x = 3", "options": ["1", "2", "3", "5"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "What does the following expression evaluate to?\nlen([1, 2, 3]) + len(\"ab\")", "options": ["3", "5", "23", "Error"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "What will this function return when called as greet()?\ndef greet(name=\"Guest\"):\n    return \"Hello \" + name\n\ngreet()", "options": ["Hello", "Hello Guest", "Error: missing argument", "None"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "When reading a semicolon-separated file with Pandas, which call correctly loads it?", "options": ["pd.read_csv('file.csv')", "pd.read_csv('file.csv', sep=';')", "pd.read_csv('file.csv', delimiter=',')", "pd.open_csv('file.csv', sep=';')"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "What is the output of the following code?\ntry:\n    x = 10 / 0\nexcept ZeroDivisionError:\n    print(\"A\")\nelse:\n    print(\"B\")\nfinally:\n    print(\"C\")", "options": ["A C", "B C", "A B C", "C only"], "correct": 0, "difficulty": "hard", "note": ""}, {"q": "What does this function return when called as calc(4, 2)?\ndef calc(a, b):\n    result = a ** b\n    return result, a + b", "options": ["16", "(16, 6)", "6", "Error: cannot return two values"], "correct": 1, "difficulty": "hard", "note": ""}, {"q": "What will the following code print?\ndef outer():\n    x = 10\n    def inner():\n        return x + 5\n    return inner()\n\nprint(outer())", "options": ["10", "5", "15", "Error: x is not defined in inner()"], "correct": 2, "difficulty": "hard", "note": "Python closures let an inner function access variables from its enclosing scope."}, {"q": "A CSV is read with Pandas as df = pd.read_csv('data.csv'), then saved with df.to_csv('out.csv'). The output file has an unwanted extra column of row numbers. What was most likely missed?", "options": ["sep=','", "index=False in to_csv()", "header=True in read_csv()", "Using pd.DataFrame() instead of read_csv()"], "correct": 1, "difficulty": "hard", "note": ""}, {"q": "Which code correctly creates a Matplotlib pie chart from a list of values and labels?", "options": ["plt.pie(values, labels=labels)", "plt.scatter(values, labels)", "plt.bar(values, labels=labels)", "px.pie(values, labels)"], "correct": 0, "difficulty": "hard", "note": ""}, {"q": "What is the output of the following code?\nnumbers = [1, 2, 3]\nfor n in numbers:\n    if n == 2:\n        continue\n    print(n)", "options": ["1 2 3", "1 3", "2", "1"], "correct": 1, "difficulty": "hard", "note": ""}]}, "unit5": {"title": "AI and Contemporary Technologies", "questions": [{"q": "What is Artificial Intelligence (AI)?", "options": ["A type of network cable", "A part of computer science focused on making machines think and act like humans", "A database query language", "A file storage format"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which of the following is an example of AI?", "options": ["Self-driving cars", "Siri", "Alexa", "All of the above"], "correct": 3, "difficulty": "easy", "note": ""}, {"q": "What is Machine Learning (ML)?", "options": ["A way for computers to learn from data and improve performance without being directly reprogrammed", "A type of network topology", "A hardware component", "A video file format"], "correct": 0, "difficulty": "easy", "note": ""}, {"q": "Which statement best describes the relationship between AI and ML?", "options": ["ML and AI are unrelated", "ML is a subset of AI that helps systems learn from data", "AI is a subset of ML", "They are the same thing with different names only"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which is an application of AI in gaming?", "options": ["AI making smart decisions to challenge human players", "AI printing documents", "AI formatting hard disks", "AI designing network cables"], "correct": 0, "difficulty": "easy", "note": ""}, {"q": "What does NLP (used in AI assistants like Siri) stand for?", "options": ["Natural Language Processing", "New Language Protocol", "Network Language Programming", "National Language Project"], "correct": 0, "difficulty": "easy", "note": ""}, {"q": "What is Automated Grading in AI?", "options": ["Manually checking exam papers", "Using AI tools to check and score students' work automatically", "A type of network protocol", "A database management feature"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which of these is an application of AI in personalized learning?", "options": ["Duolingo adapting lessons to a student's pace", "A printer printing documents", "A router assigning IP addresses", "A CAT6 cable transmitting data"], "correct": 0, "difficulty": "easy", "note": ""}, {"q": "What is an Expert System in AI?", "options": ["A computer program that acts like a human expert using stored knowledge and rules", "A type of database", "A network topology", "A video file format"], "correct": 0, "difficulty": "easy", "note": ""}, {"q": "Which of these is an application of Machine Learning?", "options": ["Email spam detection", "Speech recognition", "Self-driving cars", "All of the above"], "correct": 3, "difficulty": "easy", "note": ""}, {"q": "In which type of learning is the machine trained using labeled data with clear answers?", "options": ["Unsupervised learning", "Supervised learning", "Semi-supervised learning", "Reinforcement learning"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "In which type of learning does the computer find patterns in data without labels?", "options": ["Supervised learning", "Unsupervised learning", "Semi-supervised learning", "Reinforcement learning"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Grouping customers based on shopping patterns without pre-labeled categories is an example of:", "options": ["Supervised learning", "Unsupervised learning", "Manual sorting", "Database normalization"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Classifying an email as spam or not spam using pre-labeled training examples is an example of:", "options": ["Unsupervised learning", "Supervised learning", "Random guessing", "Manual filtering"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "What is a robot, as described in AI robotics?", "options": ["A device with sensors that takes input from its surroundings to perform tasks automatically", "A type of database table", "A text file format", "A network protocol"], "correct": 0, "difficulty": "easy", "note": ""}, {"q": "Which of these is a real-world use of robots mentioned in the chapter?", "options": ["Bomb disposal", "Space exploration", "Firefighting", "All of the above"], "correct": 3, "difficulty": "easy", "note": ""}, {"q": "What is Generative AI?", "options": ["AI that can only read stored information", "AI technology that can create new content such as text, pictures, music, or video", "A type of network cable", "A database constraint"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which company developed the Copilot generative AI tool?", "options": ["Google", "Microsoft", "Amazon", "Apple"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which company developed ChatGPT?", "options": ["OpenAI", "Microsoft", "Google", "Meta"], "correct": 0, "difficulty": "easy", "note": ""}, {"q": "Which company developed the Gemini AI chatbot?", "options": ["OpenAI", "Microsoft", "Google", "IBM"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which generative AI tool is specially designed to help with writing code and works inside apps like Word and Excel?", "options": ["Gemini", "Copilot", "ChatGPT", "Alexa"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "In AI ethics, what does \"Bias\" mean?", "options": ["Making fair decisions for everyone", "Making unfair decisions or treating people differently based on gender, race, or background", "A type of encryption", "A database key"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "In AI ethics, what does \"Privacy\" refer to?", "options": ["Sharing all data publicly", "Keeping personal information and details secret and safe from unauthorized access", "Deleting all stored data", "Making AI slower"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "What does IoT stand for?", "options": ["Internet of Things", "Input Output Technology", "Internet Operating Tool", "Integrated Online Transfer"], "correct": 0, "difficulty": "easy", "note": ""}, {"q": "What is the Internet of Things (IoT)?", "options": ["A network of physical objects that collect and exchange data through sensors and the internet", "A type of database language", "A video compression format", "A text editor"], "correct": 0, "difficulty": "easy", "note": ""}, {"q": "Which of these is an application of IoT mentioned in the chapter?", "options": ["Smart home", "Smart city", "Smart agriculture", "All of the above"], "correct": 3, "difficulty": "easy", "note": ""}, {"q": "What is Virtual Reality (VR)?", "options": ["A computer-made environment that feels real, explored using tools like VR headsets", "A type of database", "A network cable", "An SQL command"], "correct": 0, "difficulty": "easy", "note": ""}, {"q": "What does XR (Extended Reality) include?", "options": ["Only physical keyboards", "Technologies like VR and AR that mix the real and digital worlds", "Only paper documents", "Only audio files"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "What is Augmented Reality (AR)?", "options": ["A fully virtual world with no connection to reality", "Digital images or information appearing on top of the real world via a phone or glasses", "A type of database constraint", "A network protocol"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "What is Cloud Computing?", "options": ["Storing data only on a local hard disk", "A technology that lets people use services like storage and software over the internet", "A type of monitor", "A programming language"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which of these is a cloud service provider mentioned in the chapter?", "options": ["Amazon Web Services (AWS)", "Microsoft Azure", "Google Cloud", "All of the above"], "correct": 3, "difficulty": "easy", "note": ""}, {"q": "Which cloud computing service model lets you use software applications over the internet without installing them locally?", "options": ["IaaS", "PaaS", "SaaS", "None of the above"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "Which cloud computing service model provides the environment and tools to develop, build, test, and run software?", "options": ["SaaS", "PaaS", "IaaS", "XaaS"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "Which cloud computing service model provides hardware resources like servers and storage over the internet?", "options": ["SaaS", "PaaS", "IaaS", "None of the above"], "correct": 2, "difficulty": "easy", "note": ""}, {"q": "What is e-commerce?", "options": ["Buying and selling goods or services through the internet", "A type of database", "A network topology", "A file format"], "correct": 0, "difficulty": "easy", "note": ""}, {"q": "What is e-Governance?", "options": ["The use of digital tools and the internet to provide government services to citizens", "A type of multimedia file", "A network cable", "A database key"], "correct": 0, "difficulty": "easy", "note": ""}, {"q": "What is e-Education?", "options": ["The use of digital technologies and the internet to carry out teaching and learning", "A type of cloud storage only", "A network protocol", "A database constraint"], "correct": 0, "difficulty": "easy", "note": ""}, {"q": "Which of these is a merit of e-commerce mentioned in the chapter?", "options": ["Goods and services are available 24/7", "It always reduces customer choice", "It cannot be used internationally", "It requires no internet"], "correct": 0, "difficulty": "easy", "note": ""}, {"q": "Which of these is a limitation of e-Governance mentioned in the chapter?", "options": ["Faster service delivery", "Digital divide (not everyone has equal access to technology)", "Improved transparency", "Reduced corruption"], "correct": 1, "difficulty": "easy", "note": ""}, {"q": "A spam filter that automatically sends suspicious emails to a spam folder is an application of:", "options": ["Computer vision", "Machine learning", "Cloud computing", "DBMS"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "A hiring AI trained only on resumes from one gender starts ignoring other applicants. This illustrates which AI ethics issue?", "options": ["Privacy", "Security", "Bias", "Scalability"], "correct": 2, "difficulty": "medium", "note": ""}, {"q": "If a self-driving car's training data is tampered with by a hacker, which AI ethics concern is most directly involved?", "options": ["Bias", "Security", "Privacy", "Automation"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "A company stores and manages employees' personal data collected by its AI system. Protecting this data from unauthorized access is primarily a concern of:", "options": ["Security only", "Privacy", "Automated grading", "Expert systems"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "A smoke detector that senses smoke and alerts firefighters automatically over the internet, without a human checking it constantly, is an example of:", "options": ["Cloud computing", "Internet of Things (IoT)", "Vector graphics", "DBMS"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "Using Google Drive to store and access documents from anywhere without installing extra hardware is best described as using:", "options": ["IaaS only", "A cloud-based application (SaaS/IaaS)", "A peer-to-peer network", "A ring topology"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "A developer uses Google App Engine to build and deploy a new application without managing physical servers. This is an example of:", "options": ["SaaS", "PaaS", "IaaS", "e-Governance"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "Renting virtual servers and storage from AWS instead of buying physical hardware is an example of:", "options": ["SaaS", "PaaS", "IaaS", "XR"], "correct": 2, "difficulty": "medium", "note": ""}, {"q": "Applying for a citizenship certificate through a government website instead of visiting an office in person is an example of:", "options": ["e-Commerce", "e-Governance", "e-Education", "Cloud gaming"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "A university offering complete degree programs online, accessible anytime from a student's device, is an example of:", "options": ["e-Commerce", "e-Governance", "e-Education", "IoT"], "correct": 2, "difficulty": "medium", "note": ""}, {"q": "Which of these is listed as a limitation of e-commerce?", "options": ["Items are delivered to your doorstep", "There is a risk of online scams or fraud", "It saves time", "It is available 24/7"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "A teacher uses an AI tool to automatically grade multiple-choice quizzes and give instant feedback. This is an example of:", "options": ["Expert systems", "Automated grading", "Computer vision", "Cloud storage"], "correct": 1, "difficulty": "medium", "note": ""}, {"q": "A doctor uses a program that stores medical knowledge and suggests possible diagnoses. This is best described as:", "options": ["An expert system", "A vector graphic", "A simplex network", "A primary key"], "correct": 0, "difficulty": "medium", "note": ""}, {"q": "Why is Machine Learning considered a subset of Artificial Intelligence rather than a separate, unrelated field?", "options": ["Because ML focuses on helping AI systems learn and improve from data, which is part of making machines \"smart\"", "Because AI and ML were invented in completely different decades", "Because ML only works without any AI involved", "Because AI cannot use data at all"], "correct": 0, "difficulty": "medium", "note": ""}, {"q": "A VR headset creates a fully virtual world for a classroom, while a phone app overlays digital labels onto a real science lab through the camera. Which terms correctly describe these two experiences respectively?", "options": ["Both are examples of AR", "The headset is VR; the phone app is AR; both fall under the broader term XR", "The headset is AR; the phone app is VR", "Neither is related to XR"], "correct": 1, "difficulty": "hard", "note": ""}, {"q": "A bank uses AI to flag unusual transactions as potential fraud by learning from past transaction patterns. Which AI concept is primarily being applied, and why?", "options": ["Computer vision, because it processes images of cheques", "Machine learning, because the system learns patterns from historical data to detect anomalies", "e-Governance, because banks are government-related", "Vector graphics, because transactions are visualized"], "correct": 1, "difficulty": "hard", "note": ""}, {"q": "A school wants an online system where students submit assignments, get instant AI-generated grammar feedback, and access recorded lectures anytime. Which combination of concepts from the chapter does this best represent?", "options": ["e-Education combined with AI-powered tools like automated grading", "e-Governance combined with IoT only", "e-Commerce combined with VR only", "Cloud computing with no AI involvement"], "correct": 0, "difficulty": "hard", "note": ""}, {"q": "Comparing SaaS, PaaS, and IaaS: a startup wants to avoid buying physical servers but still needs full control to install its own operating system and custom software stack. Which service model fits best?", "options": ["SaaS, because it requires no technical knowledge", "PaaS, because it only provides a development environment", "IaaS, because it provides raw hardware resources like servers and storage over the internet", "None of the above, physical servers are always required"], "correct": 2, "difficulty": "hard", "note": ""}, {"q": "An AI company wants to reduce bias in its hiring tool. Based on the chapter's explanation of bias, which action would most directly address the root cause?", "options": ["Making the AI run faster", "Training the AI on diverse, balanced data rather than data skewed toward one group", "Removing internet access from the AI", "Switching from supervised to any learning technique at random"], "correct": 1, "difficulty": "hard", "note": ""}, {"q": "A city uses sensors to manage traffic lights, predict garbage collection needs, and save electricity automatically. Which two concepts from the chapter are most directly combined here?", "options": ["DBMS and vector graphics", "AI and IoT working together in a smart city", "e-Commerce and VR", "Simplex communication and CAT6 cabling"], "correct": 1, "difficulty": "hard", "note": ""}, {"q": "Given the comparison table of Copilot, ChatGPT, and Gemini, which statement correctly matches a tool to its parent company and is most suited to a specific use case mentioned in the chapter?", "options": ["Gemini, developed by Google, integrates with tools like Google Docs and Gmail", "ChatGPT, developed by Microsoft, is built into GitHub only", "Copilot, developed by Google DeepMind, is unrelated to coding", "Gemini, developed by OpenAI, is Microsoft's chatbot"], "correct": 0, "difficulty": "hard", "note": ""}, {"q": "An e-governance portal lets citizens renew a driving licence online but excludes rural citizens with no internet access. Which limitation of e-Governance does this best illustrate?", "options": ["Reduces corruption", "Digital divide", "Faster service delivery", "Equal accessibility"], "correct": 1, "difficulty": "hard", "note": ""}]}};
+</script>
+<script>
+(function(){
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ---------- nav overlay ----------
+  var burgerBtn = document.getElementById('burgerBtn');
+  var burgerBtnInner = document.getElementById('burgerBtnInner');
+  var navOverlay = document.getElementById('navOverlay');
+  function toggleNav(open){
+    var next = open !== undefined ? open : !navOverlay.classList.contains('open');
+    navOverlay.classList.toggle('open', next);
+    burgerBtn.classList.toggle('open', next);
+    burgerBtn.setAttribute('aria-expanded', String(next));
+  }
+  burgerBtn.addEventListener('click', function(){ toggleNav(); });
+  burgerBtnInner.addEventListener('click', function(){ toggleNav(false); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') toggleNav(false); });
+
+  // ---------- nav list (site link + chapters) ----------
+  var chapterKeys = Object.keys(QUIZ_DATA);
+  var navListEl = document.getElementById('navList');
+
+  var siteLi = document.createElement('li');
+  siteLi.innerHTML = '<a href="index.html"><span class="idx">\u2190</span>Back to site</a>';
+  navListEl.appendChild(siteLi);
+
+  chapterKeys.forEach(function(key, i){
+    var li = document.createElement('li');
+    var a = document.createElement('a');
+    a.href = '#';
+    a.innerHTML = '<span class="idx">' + String(i+1).padStart(2,'0') + '</span>' + QUIZ_DATA[key].title;
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      toggleNav(false);
+      startQuiz(key);
+    });
+    li.appendChild(a);
+    navListEl.appendChild(li);
+  });
+  document.getElementById('homeLink').addEventListener('click', function(e){ e.preventDefault(); showHome(); });
+  document.getElementById('navHomeLink').addEventListener('click', function(e){ e.preventDefault(); toggleNav(false); showHome(); });
+
+  // ---------- screens ----------
+  var screens = {
+    home: document.getElementById('screen-home'),
+    quiz: document.getElementById('screen-quiz'),
+    result: document.getElementById('screen-result')
+  };
+  function showScreen(name){
+    Object.keys(screens).forEach(function(k){ screens[k].classList.toggle('active', k === name); });
+    window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
+  }
+
+  // ---------- best score storage ----------
+  function bestKey(chapterKey){ return 'cs10-quiz-best-' + chapterKey; }
+  function getBest(chapterKey){
+    try { var v = localStorage.getItem(bestKey(chapterKey)); return v ? JSON.parse(v) : null; } catch(e){ return null; }
+  }
+  function setBest(chapterKey, score, total){
+    try {
+      var current = getBest(chapterKey);
+      if (!current || score > current.score) {
+        localStorage.setItem(bestKey(chapterKey), JSON.stringify({ score: score, total: total }));
+      }
+    } catch(e) {}
+  }
+
+  // ---------- chapter list (home) ----------
+  var chapterListEl = document.getElementById('chapterList');
+  function renderChapterList(){
+    chapterListEl.innerHTML = '';
+    chapterKeys.forEach(function(key, i){
+      var chapter = QUIZ_DATA[key];
+      var best = getBest(key);
+      var btn = document.createElement('button');
+      btn.className = 'chapter-row';
+      btn.innerHTML =
+        '<span class="chapter-num">' + String(i+1).padStart(2,'0') + '</span>' +
+        '<div>' +
+          '<div class="chapter-title">' + chapter.title + '</div>' +
+          '<div class="chapter-sub">' + chapter.questions.length + ' questions \u00b7 easy to hard</div>' +
+        '</div>' +
+        '<span class="chapter-best">' + (best ? ('Best: ' + best.score + '/' + best.total) : '') + '</span>';
+      btn.addEventListener('click', function(){ startQuiz(key); });
+      chapterListEl.appendChild(btn);
+    });
+  }
+  function showHome(){ renderChapterList(); showScreen('home'); }
+
+  // ---------- quiz state ----------
+  var state = { chapterKey: null, questions: [], index: 0, score: 0, answered: false };
+
+  function shuffle(arr){
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  // Shuffles within each difficulty tier but keeps easy -> medium -> hard order,
+  // so every attempt feels fresh while still ramping up in difficulty.
+  function orderByDifficulty(questions){
+    var tiers = { easy: [], medium: [], hard: [] };
+    questions.forEach(function(q){
+      (tiers[q.difficulty] || tiers.easy).push(q);
+    });
+    return shuffle(tiers.easy).concat(shuffle(tiers.medium), shuffle(tiers.hard));
+  }
+
+  function startQuiz(chapterKey){
+    var chapter = QUIZ_DATA[chapterKey];
+    var ordered = orderByDifficulty(chapter.questions);
+    state = { chapterKey: chapterKey, questions: ordered, index: 0, score: 0, answered: false };
+    showScreen('quiz');
+    renderQuestion();
+  }
+
+  var progressLabel = document.getElementById('progressLabel');
+  var progressFill = document.getElementById('progressFill');
+  var questionText = document.getElementById('questionText');
+  var optionsList = document.getElementById('optionsList');
+  var feedbackNote = document.getElementById('feedbackNote');
+  var nextBtn = document.getElementById('nextBtn');
+
+  function renderQuestion(){
+    var total = state.questions.length;
+    var q = state.questions[state.index];
+    state.answered = false;
+
+    progressLabel.textContent = 'Question ' + (state.index + 1) + ' of ' + total;
+    progressFill.style.width = (((state.index) / total) * 100) + '%';
+
+    var badge = document.getElementById('difficultyBadge');
+    badge.textContent = q.difficulty ? q.difficulty.charAt(0).toUpperCase() + q.difficulty.slice(1) : '';
+
+    questionText.textContent = q.q;
+    questionText.classList.toggle('is-code', q.q.indexOf('\n') !== -1);
+    feedbackNote.textContent = '';
+    optionsList.innerHTML = '';
+    nextBtn.disabled = true;
+    nextBtn.textContent = (state.index === total - 1) ? 'See results' : 'Next';
+
+    q.options.forEach(function(optText, i){
+      var b = document.createElement('button');
+      b.className = 'option-btn';
+      b.innerHTML = '<span class="opt-mark"></span><span>' + optText + '</span>';
+      b.addEventListener('click', function(){ selectOption(i, b); });
+      optionsList.appendChild(b);
+    });
+  }
+
+  function selectOption(i, btnEl){
+    if (state.answered) return;
+    state.answered = true;
+    var q = state.questions[state.index];
+    var correct = i === q.correct;
+    if (correct) state.score++;
+
+    var buttons = optionsList.querySelectorAll('.option-btn');
+    buttons.forEach(function(b, idx){
+      b.disabled = true;
+      if (idx === q.correct) {
+        b.classList.add('is-correct');
+        b.querySelector('.opt-mark').textContent = '\u2713';
+      } else if (idx === i) {
+        b.classList.add('is-wrong');
+        b.querySelector('.opt-mark').textContent = '\u2717';
+      }
+    });
+
+    feedbackNote.textContent = q.note || (correct ? 'Correct.' : 'Not quite — the correct answer is highlighted above.');
+    nextBtn.disabled = false;
+  }
+
+  nextBtn.addEventListener('click', function(){
+    if (!state.answered) return;
+    if (state.index === state.questions.length - 1) {
+      finishQuiz();
+    } else {
+      state.index++;
+      renderQuestion();
+    }
+  });
+
+  document.getElementById('backBtn').addEventListener('click', showHome);
+  document.getElementById('chaptersBtn').addEventListener('click', showHome);
+  document.getElementById('retryBtn').addEventListener('click', function(){ startQuiz(state.chapterKey); });
+
+  function finishQuiz(){
+    progressFill.style.width = '100%';
+    var total = state.questions.length;
+    setBest(state.chapterKey, state.score, total);
+    document.getElementById('resultScore').textContent = state.score + '/' + total;
+    document.getElementById('resultChapter').textContent = QUIZ_DATA[state.chapterKey].title;
+
+    var pct = state.score / total;
+    var msg;
+    if (pct === 1) msg = 'Full marks. Every answer in this round was correct.';
+    else if (pct >= 0.8) msg = 'Strong round \u2014 just a couple to double-check.';
+    else if (pct >= 0.5) msg = 'A fair grasp of this chapter, with room to revise a few topics.';
+    else msg = 'Worth another pass through this chapter before the next attempt.';
+    document.getElementById('resultMsg').textContent = msg;
+
+    showScreen('result');
+  }
+
+  showHome();
+})();
+</script>
+</body>
+</html>
