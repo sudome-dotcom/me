@@ -281,6 +281,15 @@
   .intro h1 i { font-style: italic; color: var(--ink-soft); }
   .intro p { font-size: 15px; line-height: 1.65; color: var(--ink-soft); max-width: 46ch; margin: 0; }
 
+  .resume-banner {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    padding: 18px 20px; margin: 28px 0 0; border: 1px solid var(--line); border-radius: 10px; background: var(--paper);
+  }
+  .resume-title { font-family: 'Fraunces', serif; font-weight: 500; font-size: 16px; margin-bottom: 3px; }
+  .resume-sub { font-size: 12.5px; color: var(--ink-soft); }
+  .resume-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+  .resume-actions .btn { padding: 9px 16px; font-size: 13px; }
+
   .chapters { padding: 20px 0 60px; }
   .chapter-row {
     display: grid;
@@ -368,6 +377,11 @@
   }
   .result-label { font-size: 14px; color: var(--ink-soft); margin-bottom: 34px; }
   .result-msg { font-size: 15px; color: var(--ink-soft); max-width: 42ch; margin: 0 auto 34px; }
+  .result-breakdown {
+    display: flex; gap: 22px; justify-content: center; flex-wrap: wrap;
+    margin-bottom: 28px; font-size: 13px; color: var(--ink-soft);
+  }
+  .result-breakdown b { color: var(--ink); font-weight: 500; }
   .result-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
   .btn {
     font-family: 'Work Sans', sans-serif; font-size: 14px; font-weight: 500;
@@ -416,6 +430,16 @@
       <h1>Test what<br><i>you've learned.</i></h1>
       <p>Practice questions drawn from every unit of the Grade 10 Computer Science textbook, following the CDC curriculum. Each chapter has 50+ questions that start easy and gradually get harder as you go.</p>
     </div>
+    <div class="resume-banner" id="resumeBanner" style="display:none;">
+      <div>
+        <div class="resume-title" id="resumeTitle">Resume quiz</div>
+        <div class="resume-sub" id="resumeSub"></div>
+      </div>
+      <div class="resume-actions">
+        <button class="btn btn-primary" id="resumeBtn">Resume</button>
+        <button class="btn btn-ghost" id="resumeDismissBtn">Dismiss</button>
+      </div>
+    </div>
     <div class="chapters" id="chapterList"></div>
   </section>
 
@@ -438,9 +462,11 @@
     <div class="result">
       <div class="result-score" id="resultScore">0/10</div>
       <div class="result-label" id="resultChapter">Chapter</div>
+      <div class="result-breakdown" id="resultBreakdown"></div>
       <p class="result-msg" id="resultMsg"></p>
       <div class="result-actions">
         <button class="btn btn-primary" id="retryBtn">Try again</button>
+        <button class="btn btn-ghost" id="retryWrongBtn">Retry what I got wrong</button>
         <button class="btn btn-ghost" id="chaptersBtn">Choose another chapter</button>
       </div>
     </div>
@@ -522,6 +548,44 @@ var QUIZ_DATA = {"unit1": {"title": "Computer Network and Communication", "quest
     } catch(e) {}
   }
 
+  // ---------- in-progress quiz storage ----------
+  var PROGRESS_KEY = 'cs10-quiz-progress';
+  function saveProgress(){
+    try {
+      localStorage.setItem(PROGRESS_KEY, JSON.stringify({
+        chapterKey: state.chapterKey,
+        questions: state.questions,
+        index: state.index,
+        score: state.score,
+        results: state.results,
+        wrongQuestions: state.wrongQuestions,
+        isPartial: state.isPartial
+      }));
+    } catch(e) {}
+  }
+  function loadProgress(){
+    try {
+      var raw = localStorage.getItem(PROGRESS_KEY);
+      return raw ? JSON.parse(raw) : null;
+    } catch(e) { return null; }
+  }
+  function clearProgress(){
+    try { localStorage.removeItem(PROGRESS_KEY); } catch(e) {}
+  }
+  function checkResume(){
+    var saved = loadProgress();
+    var banner = document.getElementById('resumeBanner');
+    if (saved && saved.questions && saved.index < saved.questions.length) {
+      banner.style.display = 'flex';
+      var chapterTitle = saved.isPartial ? 'Review round' : ((QUIZ_DATA[saved.chapterKey] || {}).title || 'Quiz');
+      document.getElementById('resumeTitle').textContent = 'Resume: ' + chapterTitle;
+      document.getElementById('resumeSub').textContent =
+        'Question ' + (saved.index + 1) + ' of ' + saved.questions.length + ' \u00b7 Score so far: ' + saved.score;
+    } else {
+      banner.style.display = 'none';
+    }
+  }
+
   // ---------- chapter list (home) ----------
   var chapterListEl = document.getElementById('chapterList');
   function renderChapterList(){
@@ -542,10 +606,25 @@ var QUIZ_DATA = {"unit1": {"title": "Computer Network and Communication", "quest
       chapterListEl.appendChild(btn);
     });
   }
-  function showHome(){ renderChapterList(); showScreen('home'); }
+  function showHome(){ renderChapterList(); checkResume(); showScreen('home'); }
+
+  document.getElementById('resumeBtn').addEventListener('click', function(){
+    var saved = loadProgress();
+    if (!saved) return;
+    state = {
+      chapterKey: saved.chapterKey, questions: saved.questions, index: saved.index, score: saved.score,
+      answered: false, results: saved.results || [], wrongQuestions: saved.wrongQuestions || [], isPartial: !!saved.isPartial
+    };
+    showScreen('quiz');
+    renderQuestion();
+  });
+  document.getElementById('resumeDismissBtn').addEventListener('click', function(){
+    clearProgress();
+    checkResume();
+  });
 
   // ---------- quiz state ----------
-  var state = { chapterKey: null, questions: [], index: 0, score: 0, answered: false };
+  var state = { chapterKey: null, questions: [], index: 0, score: 0, answered: false, results: [], wrongQuestions: [], isPartial: false };
 
   function shuffle(arr){
     var a = arr.slice();
@@ -569,9 +648,19 @@ var QUIZ_DATA = {"unit1": {"title": "Computer Network and Communication", "quest
   function startQuiz(chapterKey){
     var chapter = QUIZ_DATA[chapterKey];
     var ordered = orderByDifficulty(chapter.questions);
-    state = { chapterKey: chapterKey, questions: ordered, index: 0, score: 0, answered: false };
+    state = { chapterKey: chapterKey, questions: ordered, index: 0, score: 0, answered: false, results: [], wrongQuestions: [], isPartial: false };
     showScreen('quiz');
     renderQuestion();
+    saveProgress();
+  }
+
+  function retryWrong(){
+    if (!state.wrongQuestions || state.wrongQuestions.length === 0) return;
+    var ordered = orderByDifficulty(state.wrongQuestions);
+    state = { chapterKey: state.chapterKey, questions: ordered, index: 0, score: 0, answered: false, results: [], wrongQuestions: [], isPartial: true };
+    showScreen('quiz');
+    renderQuestion();
+    saveProgress();
   }
 
   var progressLabel = document.getElementById('progressLabel');
@@ -629,6 +718,10 @@ var QUIZ_DATA = {"unit1": {"title": "Computer Network and Communication", "quest
 
     feedbackNote.textContent = q.note || (correct ? 'Correct.' : 'Not quite — the correct answer is highlighted above.');
     nextBtn.disabled = false;
+
+    state.results.push({ difficulty: q.difficulty, correct: correct });
+    if (!correct) state.wrongQuestions.push(q);
+    saveProgress();
   }
 
   nextBtn.addEventListener('click', function(){
@@ -638,19 +731,36 @@ var QUIZ_DATA = {"unit1": {"title": "Computer Network and Communication", "quest
     } else {
       state.index++;
       renderQuestion();
+      saveProgress();
     }
   });
 
   document.getElementById('backBtn').addEventListener('click', showHome);
   document.getElementById('chaptersBtn').addEventListener('click', showHome);
   document.getElementById('retryBtn').addEventListener('click', function(){ startQuiz(state.chapterKey); });
+  document.getElementById('retryWrongBtn').addEventListener('click', retryWrong);
 
   function finishQuiz(){
     progressFill.style.width = '100%';
     var total = state.questions.length;
-    setBest(state.chapterKey, state.score, total);
+    if (!state.isPartial) setBest(state.chapterKey, state.score, total);
     document.getElementById('resultScore').textContent = state.score + '/' + total;
-    document.getElementById('resultChapter').textContent = QUIZ_DATA[state.chapterKey].title;
+    document.getElementById('resultChapter').textContent =
+      state.isPartial ? 'Review round \u2014 ' + QUIZ_DATA[state.chapterKey].title : QUIZ_DATA[state.chapterKey].title;
+
+    var tiers = { easy: {c:0,t:0}, medium: {c:0,t:0}, hard: {c:0,t:0} };
+    state.results.forEach(function(r){
+      tiers[r.difficulty].t++;
+      if (r.correct) tiers[r.difficulty].c++;
+    });
+    var parts = [];
+    ['easy','medium','hard'].forEach(function(tier){
+      if (tiers[tier].t > 0) {
+        var label = tier.charAt(0).toUpperCase() + tier.slice(1);
+        parts.push('<span>' + label + ': <b>' + tiers[tier].c + '/' + tiers[tier].t + '</b></span>');
+      }
+    });
+    document.getElementById('resultBreakdown').innerHTML = parts.join('');
 
     var pct = state.score / total;
     var msg;
@@ -660,6 +770,15 @@ var QUIZ_DATA = {"unit1": {"title": "Computer Network and Communication", "quest
     else msg = 'Worth another pass through this chapter before the next attempt.';
     document.getElementById('resultMsg').textContent = msg;
 
+    var retryWrongBtn = document.getElementById('retryWrongBtn');
+    if (state.wrongQuestions.length === 0) {
+      retryWrongBtn.style.display = 'none';
+    } else {
+      retryWrongBtn.style.display = '';
+      retryWrongBtn.textContent = 'Retry ' + state.wrongQuestions.length + ' wrong answer' + (state.wrongQuestions.length === 1 ? '' : 's');
+    }
+
+    clearProgress();
     showScreen('result');
   }
 
